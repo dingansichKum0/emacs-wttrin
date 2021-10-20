@@ -120,7 +120,7 @@ CALLBACK: function of after response."
       (error "Internal Server Error."))
   (let ((resp-str (with-current-buffer (current-buffer)
                     (buffer-substring-no-properties (search-forward "\n\n") (point-max)))))
-    (decode-coding-string (buffer-string) 'utf-8)))
+    (decode-coding-string resp-str 'utf-8)))
 
 
 (defun wttrin-exit ()
