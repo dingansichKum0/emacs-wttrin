@@ -1,0 +1,44 @@
+#+TITLE: wttrin.el
+
+Emacs frontend for weather web service [[http://wttr.in/][wttr.in]]. Fork from [[https://github.com/bcbcarl/emacs-wttrin][emacs-wttrin]] 
+
+
+* Screencast
+
+
+
+* Installation
+Download el file to your load-path.
+
+
+* Usage
+#+BEGIN_SRC lisp
+  (use-package wttrin
+    :load-path "~/.emacs.d/site-lisp/emacs-wttrin"
+    :bind
+    ("C-c w W" . wttrin)
+    :custom
+    (wttrin-cities '("Chengdu"))
+    (wttrin-forecast-days 2)
+    (wttrin-language "zh-cn")
+    (wttrin-units-wind-speed t))
+#+END_SRC
+
+Then run `M-x wttrin` to get the information.
+
+When the weather is displayed you can press `q` to quit the buffer or `g` to query for another city.
+
+* Customization
+| Variable                     | Default   | type                                                                                                                                                                | Description                                                                                                                                                                                                                                                                               |
+|------------------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| wttrin-cities                | nil       | list                                                                                                                                                                | List of city. When it's nil or input emty, wttrin will query current location.                                                                                                                                                                                                            |
+| wttrin-forecast-days         | 0         | (choice (const :tag "Only current weather" 0) (const :tag "Current weather + today's forecast" 1) (const :tag "Current weather + today's + tomorrow's forecast" 2)) | Forecast days.                                                                                                                                                                                                                                                                            |
+| wttrin-language              | "en"      | string                                                                                                                                                              | The language of the display. am ar af be ca da de el et fr fa hi hu ia id it lt nb nl oc pl pt-br ro ru tr th uk vi zh-cn zh-tw (supported) az bg bs cy cs eo es eu fi ga hi hr hy is ja jv ka kk ko ky lv mk ml mr nl fy nn pt pt-br sk sl sr sr-lat sv sw te uz zh zu he (in progress)" |
+| wttrin-units-metric          | nil       | boolean                                                                                                                                                             | Metric (SI) (used by default everywhere except US).(url?m).                                                                                                                                                                                                                               |
+| wttrin-units-USCS            | nil       | boolean                                                                                                                                                             | USCS (used by default in US).(url?u).                                                                                                                                                                                                                                                     |
+| wttrin-units-wind-speed      | nil       | boolean                                                                                                                                                             | Show wind speed in m/s.(url?M).                                                                                                                                                                                                                                                           |
+| wttrin-request-extra-headers | nil       | (group cons)                                                                                                                                                        | Extra haeders that wttrin request.                                                                                                                                                                                                                                                        |
+| wttrin-visual-buffer-name    | "*wttr.in*" | string                                                                                                                                                              | Wttrin visual buffer name.                                                                                                                                                                                                                                                                |
+
+* LICENSE
+MIT

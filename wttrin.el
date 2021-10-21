@@ -54,7 +54,7 @@ mr nl fy nn pt pt-br sk sl sr sr-lat sv sw te uz zh zu he (in progress)"
 
 
 (defcustom wttrin-units-metric nil
-  "metric (SI) (used by default everywhere except US).(url?m)"
+  "Metric (SI) (used by default everywhere except US).(url?m)"
   :group 'wttrin
   :type 'boolean)
 
@@ -66,13 +66,13 @@ mr nl fy nn pt pt-br sk sl sr sr-lat sv sw te uz zh zu he (in progress)"
 
 
 (defcustom wttrin-units-wind-speed nil
-  "show wind speed in m/s.(url?M)"
+  "Show wind speed in m/s.(url?M)"
   :group 'wttrin
   :type 'boolean)
 
 
 (defcustom wttrin-request-extra-headers nil
-  "Wttrin request extra haeders."
+  "Extra haeders that wttrin request."
   :group 'wttrin
   :type '(group cons))
 
@@ -153,7 +153,8 @@ CALLBACK: function of after response."
 
 ;;;###autoload
 (defun wttrin (&optional city)
-  "Display weather information for CITY."
+  "Display weather information that select CITY,
+or input emty to display current location."
   (interactive (list (if wttrin-cities
                          (completing-read "City name: " wttrin-cities nil nil ""))))
   (wttrin-query city))
