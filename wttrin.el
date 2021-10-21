@@ -154,7 +154,8 @@ CALLBACK: function of after response."
 ;;;###autoload
 (defun wttrin (&optional city)
   "Display weather information that select CITY,
-or input emty to display current location."
+also input citry name to display the information,
+or input emty to display the information of current location."
   (interactive (list (if wttrin-cities
                          (completing-read "City name: " wttrin-cities nil nil ""))))
   (wttrin-query city))
