@@ -174,7 +174,7 @@ or input emty to display the information of current location."
               view-read-only nil)
   
   (defface wttrin-buffer-local-face
-    '((t :height 110))
+    '((t :height 120))
     "wttrin-buffer-local face")
   (buffer-face-set 'wttrin-buffer-local-face)
   (run-mode-hooks))
